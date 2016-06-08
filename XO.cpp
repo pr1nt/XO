@@ -39,7 +39,13 @@ void Gameplay() {
 			cout << "X turn: ";
 		}
 		else cout << "O turn: ";
-		cin >> row >> column;
+		while (true) {
+			cin >> row >> column;
+			if ((field[row - 1][column - 1] == 'X') || (field[row - 1][column - 1] == 'O')) {
+				cout << "The cell is already filled, choose another cell\n";
+			}
+			else break;
+		}
 		if (curPlayer == 1) field[row - 1][column - 1] = 'X';
 		else				field[row - 1][column - 1] = 'O';
 		curPlayer *= -1;
